@@ -1,6 +1,7 @@
-images/
-.upm/
-.config/
+images
+.upm
+.config
+.gitattributes
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
