@@ -4,14 +4,11 @@ from random import shuffle
 from time import sleep
 from pathlib import Path
 
+from fetch_images_api import get_images_paths
+
 import telegram
 from dotenv import load_dotenv
 load_dotenv()
-
-
-def get_images_paths():
-    images_paths = list(Path("images/").rglob("*.[jJpPGg][pPnNiI][gGgGfF]"))
-    return images_paths
 
 
 def get_publications_frequency():

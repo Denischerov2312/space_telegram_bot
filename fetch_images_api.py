@@ -11,12 +11,14 @@ def determine_file_extension(url):
     file_extension = splitext(split(filepath)[1])[1]
     return file_extension
 
+
 def download_picture(url, filepath):
     response = requests.get(url)
     response.raise_for_status()
     make_directory(filepath)
     with open(filepath, 'wb') as file:
         file.write(response.content)
+
 
 def make_directory(filepath):
     path = PurePosixPath(filepath)
@@ -30,3 +32,8 @@ def add_url_params(url, params):
     query.update(params)
     url_parts[4] = urlencode(query)
     return urlparse.urlunparse(url_parts)
+
+
+def get_images_paths():
+    images_paths = list(Path("images/").rglob("*.[jJpPGg][pPnNiI][gGgGfF]"))
+    return images_paths
