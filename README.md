@@ -16,6 +16,7 @@ zKE1M2alv5BkAQwK9adbQLZ6PX2zgHTAfJJohPZE
 3426142790:HAFJ8naDhY3pbAFplK6GZarLExxaKaLMGc
 ```
 * `PUBLICATION_FREQUENCY` — частота публикации картинки (в часах), по умолчанию `4`.
+* `TELEGRAMM_CHAT_ID` — id чата, в который будут отправлятся сообщения. Пример: `@name`
 
 ### Как установить
 
