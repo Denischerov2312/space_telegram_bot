@@ -10,7 +10,7 @@ load_dotenv()
 
 
 def get_images_paths():
-    images_paths = list(Path("images/").rglob("*.[jJpP][pPnN][gGgG]"))
+    images_paths = list(Path("images/").rglob("*.[jJpPGg][pPnNiI][gGgGfF]"))
     return images_paths
 
 
