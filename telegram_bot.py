@@ -6,9 +6,7 @@ from pathlib import Path
 
 import telegram
 from dotenv import load_dotenv
-
-
-CHAT_ID = "@SpacePhotos12"
+load_dotenv()
 
 
 def get_images_paths():
@@ -26,15 +24,15 @@ def get_publications_frequency():
         default=default_hour,
     )
     args = parser.parse_args()
-    return int(args.hour_frequency * 3600)
+    return int(args.hour_frequency) * 3600
 
 
 def publicate_images(bot, image_path):
-    bot.send_photo(chat_id=CHAT_ID, photo=open(image_path, "rb"))
+    chat_id = os.getenv('TELEGRAMM_CHAT_ID')
+    bot.send_photo(chat_id=chat_id, photo=open(image_path, "rb"))
 
 
 def main():
-    load_dotenv()
     telegram_token = os.getenv("TELEGRAM_BOT_TOKEN")
     bot = telegram.Bot(token=telegram_token)
     while True:
