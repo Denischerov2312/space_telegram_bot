@@ -32,8 +32,7 @@ def main():
     chat_id = os.getenv("TELEGRAMM_CHAT_ID")
     bot = telegram.Bot(token=telegram_token)
     image = get_image_path()
-    publicate_image(bot, image, chat_id)
-    
+    publicate_image(bot, image, chat_id) 
 
 
 if __name__ == '__main__':
