@@ -4,7 +4,7 @@ from random import shuffle
 from time import sleep
 
 from fetch_images_api import get_images_paths
-from bot_send_image import publicate_images
+from bot_send_image import publicate_image
 
 import telegram
 from dotenv import load_dotenv
@@ -33,7 +33,7 @@ def main():
         shuffle(images_paths)
         for image_path in images_paths:
             try:
-                publicate_images(bot, image_path, chat_id)
+                publicate_image(bot, image_path, chat_id)
             except telegram.error.BadRequest:
                 continue
             sleep(get_publications_frequency(default_hour))
