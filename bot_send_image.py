@@ -14,7 +14,8 @@ def get_images_paths():
 
 def get_image_path():
     parser = argparse.ArgumentParser()
-    default_path = random.choice(get_images_paths())
+    images = os.listdir('images/')
+    default_path = os.path.join('images', random.choice(images))
     parser.add_argument(
         '-I',
         '--image',

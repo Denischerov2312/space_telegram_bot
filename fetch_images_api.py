@@ -32,8 +32,3 @@ def add_url_params(url, params):
     query.update(params)
     url_parts[4] = urlencode(query)
     return urlparse.urlunparse(url_parts)
-
-
-def get_images_paths():
-    images_paths = list(Path("images/").rglob("*.[jJpPGg][pPnNiI][gGgGfF]"))
-    return images_paths

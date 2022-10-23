@@ -3,7 +3,6 @@ import argparse
 from random import shuffle
 from time import sleep
 
-from fetch_images_api import get_images_paths
 from bot_send_image import publicate_image
 
 import telegram
@@ -24,14 +23,16 @@ def get_publications_frequency(default_hour):
 
 def publicate_photos(bot, chat_id, default_hour):
     while True:
-        images_paths = get_images_paths()
-        shuffle(images_paths)
-        for image_path in images_paths:
+        images = os.listdir('images/')
+        shuffle(images)
+        for image in images:
+            image_path = os.path.join('images', image)
             try:
                 publicate_image(bot, image_path, chat_id)
             except telegram.error.BadRequest:
                 continue
             sleep(get_publications_frequency(default_hour))
+
 
 def main():
     load_dotenv()
