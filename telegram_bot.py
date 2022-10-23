@@ -22,7 +22,8 @@ def get_publications_frequency(default_hour):
 
 
 def publicate_images(bot, image_path, chat_id):
-    bot.send_photo(chat_id=chat_id, photo=open(image_path, "rb"))
+    with open(image_path, 'rb') as image:
+        bot.send_photo(chat_id=chat_id, photo=image)
 
 
 def main():

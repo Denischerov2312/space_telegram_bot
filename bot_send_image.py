@@ -27,7 +27,8 @@ def main():
     chat_id = os.getenv("TELEGRAMM_CHAT_ID")
     bot = telegram.Bot(token=telegram_token)
     image = get_image_path()
-    bot.send_photo(chat_id=chat_id, photo=open(image, 'rb'))
+    with open(image, 'rb') as image:
+        bot.send_photo(chat_id=chat_id, photo=image)
 
 
 if __name__ == '__main__':
