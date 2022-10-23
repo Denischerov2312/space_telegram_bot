@@ -1,11 +1,15 @@
 import os
 import argparse
 import random
+from pathlib import Path
 
 import telegram
-
-from fetch_images_api import get_images_paths
 from dotenv import load_dotenv
+
+
+def get_images_paths():
+    images_paths = list(Path("images/").rglob("*.[jJpPGg][pPnNiI][gGgGfF]"))
+    return images_paths
 
 
 def get_image_path():
