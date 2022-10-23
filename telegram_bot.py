@@ -4,6 +4,7 @@ from random import shuffle
 from time import sleep
 
 from fetch_images_api import get_images_paths
+from bot_send_image import publicate_images
 
 import telegram
 from dotenv import load_dotenv
@@ -19,11 +20,6 @@ def get_publications_frequency(default_hour):
     )
     args = parser.parse_args()
     return int(args.hour_frequency) * 3600
-
-
-def publicate_images(bot, image_path, chat_id):
-    with open(image_path, 'rb') as image:
-        bot.send_photo(chat_id=chat_id, photo=image)
 
 
 def main():

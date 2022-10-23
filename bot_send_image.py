@@ -21,14 +21,19 @@ def get_image_path():
     return args.image
 
 
+def publicate_images(bot, image_path, chat_id):
+    with open(image_path, 'rb') as image:
+        bot.send_photo(chat_id=chat_id, photo=image)
+
+
 def main():
     load_dotenv()
     telegram_token = os.getenv("TELEGRAM_BOT_TOKEN")
     chat_id = os.getenv("TELEGRAMM_CHAT_ID")
     bot = telegram.Bot(token=telegram_token)
     image = get_image_path()
-    with open(image, 'rb') as image:
-        bot.send_photo(chat_id=chat_id, photo=image)
+    publicate_images(bot, image, chat_id)
+    
 
 
 if __name__ == '__main__':
