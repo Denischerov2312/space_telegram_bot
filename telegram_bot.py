@@ -2,7 +2,6 @@ import os
 import argparse
 from random import shuffle
 from time import sleep
-from pathlib import Path
 
 from fetch_images_api import get_images_paths
 
