@@ -6,7 +6,6 @@ import telegram
 
 from fetch_images_api import get_images_paths
 from dotenv import load_dotenv
-load_dotenv()
 
 
 def get_image_path():
@@ -23,6 +22,7 @@ def get_image_path():
 
 
 def main():
+    load_dotenv()
     telegram_token = os.getenv("TELEGRAM_BOT_TOKEN")
     chat_id = os.getenv("TELEGRAMM_CHAT_ID")
     bot = telegram.Bot(token=telegram_token)
