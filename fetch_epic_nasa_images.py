@@ -20,7 +20,7 @@ def get_epic_nasa_links(api_key):
     url = 'https://api.nasa.gov/EPIC/api/natural/images'
     response = requests.get(url, params=params)
     response.raise_for_status()
-    urls = list()
+    urls = []
     images = response.json()[:int(get_image_count())]
     for image in images:
         date = datetime.datetime.fromisoformat(image['date'])
