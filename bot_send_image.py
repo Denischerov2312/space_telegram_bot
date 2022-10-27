@@ -15,7 +15,7 @@ def get_image_path():
         '--image',
         default=default_path,
         help='Путь до изображения'
-        )
+    )
     args = parser.parse_args()
     return args.image
 

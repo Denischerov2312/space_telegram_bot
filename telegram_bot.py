@@ -23,10 +23,10 @@ def get_publications_frequency(default_hour):
 
 def publicate_photos(bot, chat_id, default_hour):
     while True:
-        images = os.listdir('images/')
+        images = os.listdir("images/")
         shuffle(images)
         for image in images:
-            image_path = os.path.join('images', image)
+            image_path = os.path.join("images", image)
             try:
                 publicate_image(bot, image_path, chat_id)
             except telegram.error.BadRequest:
@@ -37,7 +37,7 @@ def publicate_photos(bot, chat_id, default_hour):
 def main():
     load_dotenv()
     default_hour = os.getenv("PUBLICATION_FREQUENCY")
-    chat_id = os.getenv('TELEGRAMM_CHAT_ID')
+    chat_id = os.getenv("TELEGRAMM_CHAT_ID")
     telegram_token = os.getenv("TELEGRAM_BOT_TOKEN")
     bot = telegram.Bot(token=telegram_token)
     publicate_photos(bot, chat_id, default_hour)

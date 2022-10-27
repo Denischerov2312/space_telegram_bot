@@ -16,7 +16,7 @@ def download_picture(url, filepath):
     response = requests.get(url)
     response.raise_for_status()
     make_directory(filepath)
-    with open(filepath, 'wb') as file:
+    with open(filepath, "wb") as file:
         file.write(response.content)
 
 
