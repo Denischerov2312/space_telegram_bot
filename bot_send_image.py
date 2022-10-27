@@ -7,11 +7,6 @@ import telegram
 from dotenv import load_dotenv
 
 
-def get_images_paths():
-    images_paths = list(Path("images/").rglob("*.[jJpPGg][pPnNiI][gGgGfF]"))
-    return images_paths
-
-
 def get_image_path():
     parser = argparse.ArgumentParser()
     images = os.listdir('images/')
