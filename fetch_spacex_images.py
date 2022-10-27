@@ -7,7 +7,10 @@ import requests
 
 def get_flight_id():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--flight_id', help='ID запуска SpaceX', default='latest')
+    parser.add_argument('--flight_id',
+                        help='ID запуска SpaceX',
+                        default='latest'
+                        )
     args = parser.parse_args()
     return args.flight_id
 

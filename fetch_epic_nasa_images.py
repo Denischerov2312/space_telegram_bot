@@ -2,7 +2,8 @@ import argparse
 import datetime
 import os
 
-from fetch_images_api import download_picture, add_url_params, determine_file_extension
+from fetch_images_api import download_picture, add_url_params
+from fetch_images_api import determine_file_extension
 
 import requests
 from dotenv import load_dotenv
@@ -10,7 +11,11 @@ from dotenv import load_dotenv
 
 def get_image_count():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-C', '--count', help='Количество желаемых фотографий (максимум 12)', default=5)
+    parser.add_argument('-C',
+                        '--count',
+                        help='Количество желаемых фотографий (максимум 12)',
+                        default=5
+                        )
     args = parser.parse_args()
     return args.count
 
