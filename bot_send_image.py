@@ -1,7 +1,6 @@
 import os
 import argparse
 import random
-from pathlib import Path
 
 import telegram
 from dotenv import load_dotenv
