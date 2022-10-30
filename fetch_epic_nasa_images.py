@@ -40,7 +40,7 @@ def get_epic_nasa_links(api_key):
 
 def fetch_epic_nasa_images(api_key):
     for photo_number, link in enumerate(get_epic_nasa_links(api_key)):
-        filepath = f"images/epic_nasa{photo_number}{determine_file_extension(link)}"
+        filepath = os.path.join('images', f'epic_nasa{photo_number}{determine_file_extension(link)}')
         download_picture(link, filepath)
 
 

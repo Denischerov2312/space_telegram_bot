@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 def get_image_path():
     parser = argparse.ArgumentParser()
-    images = os.listdir('images/')
+    images = os.listdir('images')
     default_path = os.path.join('images', random.choice(images))
     parser.add_argument(
         '-I',

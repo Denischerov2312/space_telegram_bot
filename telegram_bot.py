@@ -23,7 +23,7 @@ def get_publications_frequency(default_hour):
 
 def publicate_photos(bot, chat_id, default_hour):
     while True:
-        images = os.listdir("images/")
+        images = os.listdir("images")
         shuffle(images)
         for image in images:
             image_path = os.path.join("images", image)

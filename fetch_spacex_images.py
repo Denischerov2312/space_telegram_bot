@@ -1,4 +1,5 @@
 import argparse
+import os
 
 from fetch_images_api import download_picture
 
@@ -24,7 +25,7 @@ def get_spacex_links():
 
 def fetch_spacex_last_launch():
     for photo_number, link in enumerate(get_spacex_links()):
-        filepath = f"images/spacex{photo_number}.jpg"
+        filepath = os.path.join('images', f'spacex{photo_number}.jpg')
         download_picture(link, filepath)
 
 
