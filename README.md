@@ -17,7 +17,7 @@ zKE1M2alv5BkAQwK9adbQLZ6PX2zgHTAfJJohPZE
 3426142790:HAFJ8naDhY3pbAFplK6GZarLExxaKaLMGc
 ```
 * `PUBLICATION_FREQUENCY` — частота публикации картинки (в часах), по умолчанию `4`.
-* `TELEGRAMM_CHAT_ID` — id чата, в который будут отправлятся сообщения. Пример: `@name`
+* `TELEGRAMM_CHAT_ID` — id чата, в который будут отправляться сообщения. Пример: `@name`
 
 ### Примеры запуска скриптов
 Изображения скачиваются в папку `images` и берутся из неё.
@@ -43,7 +43,7 @@ python fetch_nasa_images.py --count 40
 python fetch_spacex_images.py --flight_id 5eb87d47ffd86e000604b38a
 ```
 
-* `telegram_bot.py` - скрипт, запускающий беспонечную публикацию изображений из папки `images`. Аргумент `--hour_frequency` - означает раз во сколько часов публикуется
+* `telegram_bot.py` - скрипт, запускающий бесконечную публикацию изображений из папки `images`. Аргумент `--hour_frequency` - означает раз во сколько часов публикуется
 одно изображение. По умолчанию `4`.
 ```
 python telegram_bot.py --hour_frequency 2
@@ -52,7 +52,7 @@ python telegram_bot.py --hour_frequency 2
 ### Как установить
 
 Python3 должен быть уже установлен. 
-Затем используйте `pip` (или `pip3`, есть есть конфликт с Python2) для установки зависимостей:
+Затем используйте `pip` (или `pip3`, есть конфликт с Python2) для установки зависимостей:
 ```
 pip install -r requirements.txt
 ```
