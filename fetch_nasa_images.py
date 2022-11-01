@@ -13,14 +13,14 @@ def get_image_count():
         "-C",
         "--count",
         help="Количество желаемых фотографий",
-        default=35
+        default=35,
     )
     args = parser.parse_args()
-    return args.count
+    return int(args.count)
 
 
-def get_nasa_links(api_key):
-    params = {"api_key": api_key, "count": get_image_count()}
+def get_nasa_links(api_key, image_count):
+    params = {"api_key": api_key, "count": image_count}
     url = "https://api.nasa.gov/planetary/apod"
     response = requests.get(url, params=params)
     response.raise_for_status()
@@ -30,8 +30,8 @@ def get_nasa_links(api_key):
     return urls
 
 
-def fetch_nasa_images(api_key):
-    for photo_number, link in enumerate(get_nasa_links(api_key)):
+def fetch_nasa_images(api_key, image_count):
+    for photo_number, link in enumerate(get_nasa_links(api_key, image_count)):
         file_extension = determine_file_extension(link)
         if file_extension == "":
             continue
@@ -42,7 +42,8 @@ def fetch_nasa_images(api_key):
 def main():
     load_dotenv()
     nasa_api_key = os.getenv("NASA_API_KEY")
-    fetch_nasa_images(nasa_api_key)
+    image_count = get_image_count()
+    fetch_nasa_images(nasa_api_key, image_count)
 
 
 if __name__ == "__main__":

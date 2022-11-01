@@ -15,19 +15,19 @@ def get_image_count():
         "-C",
         "--count",
         help="Количество желаемых фотографий (максимум 12)",
-        default=5
+        default=5,
     )
     args = parser.parse_args()
-    return args.count
+    return int(args.count)
 
 
-def get_epic_nasa_links(api_key):
+def get_epic_nasa_links(api_key, image_count):
     params = {"api_key": api_key}
     url = "https://api.nasa.gov/EPIC/api/natural/images"
     response = requests.get(url, params=params)
     response.raise_for_status()
     urls = []
-    images = response.json()[: int(get_image_count())]
+    images = response.json()[: image_count]
     for image in images:
         date = datetime.datetime.fromisoformat(image["date"])
         date = date.strftime("%Y/%m/%d")
@@ -38,8 +38,8 @@ def get_epic_nasa_links(api_key):
     return urls
 
 
-def fetch_epic_nasa_images(api_key):
-    for photo_number, link in enumerate(get_epic_nasa_links(api_key)):
+def fetch_epic_nasa_images(api_key, image_count):
+    for photo_number, link in enumerate(get_epic_nasa_links(api_key, image_count)):
         filepath = os.path.join('images', f'epic_nasa{photo_number}{determine_file_extension(link)}')
         download_picture(link, filepath)
 
@@ -47,7 +47,8 @@ def fetch_epic_nasa_images(api_key):
 def main():
     load_dotenv()
     nasa_api_key = os.getenv("NASA_API_KEY")
-    fetch_epic_nasa_images(nasa_api_key)
+    image_count = get_image_count()
+    fetch_epic_nasa_images(nasa_api_key, image_count)
 
 
 if __name__ == "__main__":
