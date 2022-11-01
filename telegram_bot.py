@@ -9,7 +9,7 @@ import telegram
 from dotenv import load_dotenv
 
 
-def get_publications_frequency(default_hour):
+def get_delay(default_hour):
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-F",
@@ -21,7 +21,7 @@ def get_publications_frequency(default_hour):
     return int(args.hour_frequency) * 3600
 
 
-def publicate_photos(bot, chat_id, publications_frequency):
+def publicate_photos(bot, chat_id, delay):
     while True:
         images = os.listdir("images")
         shuffle(images)
@@ -31,7 +31,7 @@ def publicate_photos(bot, chat_id, publications_frequency):
                 publicate_image(bot, image_path, chat_id)
             except telegram.error.BadRequest:
                 continue
-            sleep(publications_frequency)
+            sleep(delay)
 
 
 def main():
@@ -40,8 +40,8 @@ def main():
     chat_id = os.getenv("TELEGRAMM_CHAT_ID")
     telegram_token = os.getenv("TELEGRAM_BOT_TOKEN")
     bot = telegram.Bot(token=telegram_token)
-    publications_frequency = get_publications_frequency(default_hour)
-    publicate_photos(bot, chat_id, publications_frequency)
+    delay = get_delay(default_hour)
+    publicate_photos(bot, chat_id, delay)
 
 
 if __name__ == "__main__":
