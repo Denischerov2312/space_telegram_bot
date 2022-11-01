@@ -37,8 +37,8 @@ def publicate_photos(bot, chat_id, delay):
 def main():
     load_dotenv()
     default_hour = os.getenv("PUBLICATION_FREQUENCY", default=4)
-    chat_id = os.getenv("TELEGRAMM_CHAT_ID")
-    telegram_token = os.getenv("TELEGRAM_BOT_TOKEN")
+    chat_id = os.environ("TELEGRAMM_CHAT_ID")
+    telegram_token = os.environ("TELEGRAM_BOT_TOKEN")
     bot = telegram.Bot(token=telegram_token)
     delay = get_delay(default_hour)
     publicate_photos(bot, chat_id, delay)
