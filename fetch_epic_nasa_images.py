@@ -46,7 +46,7 @@ def fetch_epic_nasa_images(api_key, image_count):
 
 def main():
     load_dotenv()
-    nasa_api_key = os.environ("NASA_API_KEY")
+    nasa_api_key = os.environ["NASA_API_KEY"]
     image_count = get_image_count()
     fetch_epic_nasa_images(nasa_api_key, image_count)
 
