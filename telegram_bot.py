@@ -30,6 +30,7 @@ def publicate_photos(bot, chat_id, delay):
             try:
                 publicate_image(bot, image_path, chat_id)
             except telegram.error.BadRequest:
+                sleep(60)
                 continue
             sleep(delay)
 
