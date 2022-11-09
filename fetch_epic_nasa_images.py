@@ -16,9 +16,10 @@ def get_image_count():
         "--count",
         help="Количество желаемых фотографий (максимум 12)",
         default=5,
+        type=int,
     )
     args = parser.parse_args()
-    return int(args.count)
+    return args.count
 
 
 def get_epic_nasa_links(api_key, image_count):

@@ -16,9 +16,10 @@ def get_delay(default_hour):
         "--hour_frequency",
         help="Частота публикаций (Одна фотография в X часов)",
         default=default_hour,
+        type=int,
     )
     args = parser.parse_args()
-    return int(args.hour_frequency) * 3600
+    return args.hour_frequency * 3600
 
 
 def publicate_photos(bot, chat_id, delay):
