@@ -26,7 +26,8 @@ def get_nasa_links(api_key, image_count):
     response.raise_for_status()
     urls = list()
     for apod in response.json():
-        urls.append(apod["url"])
+        if apod['media_type'] not in ('video', 'other',):
+            urls.append(apod["url"])
     return urls
 
 
