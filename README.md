@@ -17,7 +17,7 @@ zKE1M2alv5BkAQwK9adbQLZ6PX2zgHTAfJJohPZE
 3426142790:HAFJ8naDhY3pbAFplK6GZarLExxaKaLMGc
 ```
 * `PUBLICATION_FREQUENCY` — частота публикации картинки (в часах), по умолчанию `4`.
-* `TELEGRAMM_CHAT_ID` — id чата, в который будут отправляться сообщения. Пример: `@name`
+* `TELEGRAM_CHAT_ID` — id чата, в который будут отправляться сообщения. Пример: `@name`
 
 ### Примеры запуска скриптов
 Изображения скачиваются в папку `images` и берутся из неё.
