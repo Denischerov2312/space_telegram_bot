@@ -37,7 +37,10 @@ def fetch_nasa_images(api_key, image_count):
         file_extension = determine_file_extension(link)
         if not file_extension:
             continue
-        filepath = os.path.join('images', f'nasa{photo_number}{file_extension}')
+        filepath = os.path.join(
+            'images',
+            f'nasa{photo_number}{file_extension}',
+        )
         download_picture(link, filepath)
 
 

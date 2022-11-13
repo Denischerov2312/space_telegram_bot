@@ -33,15 +33,20 @@ def get_epic_nasa_links(api_key, image_count):
         date = datetime.datetime.fromisoformat(image["date"])
         date = date.strftime("%Y/%m/%d")
         filename = image["image"]
-        url = f"https://api.nasa.gov/EPIC/archive/natural/{date}/png/{filename}.png"
+        part_of_url = 'https://api.nasa.gov/EPIC/archive/natural/'
+        url = f"{part_of_url}{date}/png/{filename}.png"
         url = add_url_params(url, params)
         urls.append(url)
     return urls
 
 
 def fetch_epic_nasa_images(api_key, image_count):
-    for photo_number, link in enumerate(get_epic_nasa_links(api_key, image_count)):
-        filepath = os.path.join('images', f'epic_nasa{photo_number}{determine_file_extension(link)}')
+    photos_links = get_epic_nasa_links(api_key, image_count)
+    for photo_number, link in enumerate(photos_links):
+        filepath = os.path.join(
+            'images',
+            f'epic_nasa{photo_number}{determine_file_extension(link)}'
+        )
         download_picture(link, filepath)
 
 

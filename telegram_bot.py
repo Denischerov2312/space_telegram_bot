@@ -30,10 +30,11 @@ def publicate_photos(bot, chat_id, delay):
             image_path = os.path.join("images", image)
             try:
                 publicate_image(bot, image_path, chat_id)
-            except telegram.error.BadRequest: # Пропускает изображение, если его размер слишком большой
+            except telegram.error.BadRequest:
                 continue
             except telegram.error.NetworkError:
-                print('Проблемы с подключением, следующая попытка через 10 сек.')
+                print('Проблемы с подключением, \
+                    следующая попытка через 10 сек.')
                 sleep(10)
                 continue
             sleep(delay)
