@@ -28,7 +28,7 @@ def publicate_image(bot, image_path, chat_id):
 def main():
     load_dotenv()
     telegram_token = os.environ["TELEGRAM_BOT_TOKEN"]
-    chat_id = os.environ["TELEGRAMM_CHAT_ID"]
+    chat_id = os.environ["TELEGRAM_CHAT_ID"]
     bot = telegram.Bot(token=telegram_token)
     image = get_image_path()
     publicate_image(bot, image, chat_id)
